@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xos-Tm-mct">
-                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xos-Tm-mct">
+                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNK-VI-RQI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
@@ -27,8 +27,9 @@
                                     <constraint firstAttribute="height" constant="61" id="c9k-4N-nhE"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ieI-nB-qVM">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ieI-nB-qVM">
                                 <rect key="frame" x="13" y="126" width="347" height="521"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X0o-FN-aGx">
                                     <size key="itemSize" width="82" height="86"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -59,6 +60,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.56004849137931034" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="LYs-Gf-cpo" secondAttribute="bottom" constant="3" id="3Xa-L3-I1v"/>
                                             <constraint firstItem="dVf-CD-JE6" firstAttribute="leading" secondItem="pfQ-Th-HVX" secondAttribute="leading" id="OGf-aU-GaY"/>
@@ -71,7 +73,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-GG-tre">
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-GG-tre">
                                 <rect key="frame" x="0.0" y="62" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -89,10 +91,16 @@
                             <constraint firstItem="oBS-GG-tre" firstAttribute="top" secondItem="TNK-VI-RQI" secondAttribute="bottom" id="aq7-Cq-dQX"/>
                             <constraint firstItem="TNK-VI-RQI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bwf-6U-CO8"/>
                             <constraint firstItem="ieI-nB-qVM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fpD-9x-dwG"/>
+                            <constraint firstItem="xos-Tm-mct" firstAttribute="top" secondItem="oBS-GG-tre" secondAttribute="bottom" id="izg-Ft-toR"/>
                             <constraint firstAttribute="trailing" secondItem="xos-Tm-mct" secondAttribute="trailing" id="mcK-4F-YMk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xos-Tm-mct" secondAttribute="bottom" id="sUI-2X-AWb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ieI-nB-qVM" secondAttribute="bottom" constant="20" id="uCz-Ui-4Vp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ORM-YL-Yqd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
