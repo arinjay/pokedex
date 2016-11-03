@@ -12,12 +12,38 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
 
     @IBOutlet weak var collection: UICollectionView!
     
+    var pokemo = [Pokemon]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.delegate = self    // delegaton for this collection is for this class above
         collection.dataSource = self
+        
+        parsePokemonCSV()
     }
+    
+    
+    func parsePokemonCSV(){
+        let path  = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv")!
+        
+        do {
+            let csv = try CSV(contentsOfURL: path)
+            let rows = csv.rows
+            
+            
+            
+            
+        } catch let err as NSError {
+            
+            print(err.description)
+        }
+    }
+    
+    
+    
+    
+    
     
     
     // everytime it needs a cell
