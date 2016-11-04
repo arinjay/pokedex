@@ -16,6 +16,8 @@
 		12331B5F1DC4F61D003688EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12331B5E1DC4F61D003688EA /* Assets.xcassets */; };
 		12331B621DC4F61D003688EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12331B601DC4F61D003688EA /* LaunchScreen.storyboard */; };
 		123321061DC50EFC003688EA /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 123321051DC50EFC003688EA /* pokemon.csv */; };
+		1290905C1DCD14EC006B435C /* Pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1290905B1DCD14EB006B435C /* Pokemon.ttf */; };
+		1290905E1DCD1AEC006B435C /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1290905D1DCD1AEC006B435C /* music.mp3 */; };
 		12BE863A1DC7AE430065CF52 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12BE86391DC7AE430065CF52 /* bg.jpg */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		12331B611DC4F61D003688EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12331B631DC4F61D003688EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		123321051DC50EFC003688EA /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
+		1290905B1DCD14EB006B435C /* Pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pokemon.ttf; sourceTree = "<group>"; };
+		1290905D1DCD1AEC006B435C /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		12BE86391DC7AE430065CF52 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,8 +114,10 @@
 				121056D71DC9B69E000F9AC3 /* View */,
 				122130511DCB603E007BBAE7 /* Utils */,
 				12331B571DC4F61D003688EA /* AppDelegate.swift */,
+				1290905B1DCD14EB006B435C /* Pokemon.ttf */,
 				12331B5B1DC4F61D003688EA /* Main.storyboard */,
 				12331B5E1DC4F61D003688EA /* Assets.xcassets */,
+				1290905D1DCD1AEC006B435C /* music.mp3 */,
 				12BE86391DC7AE430065CF52 /* bg.jpg */,
 				12331B601DC4F61D003688EA /* LaunchScreen.storyboard */,
 				12331B631DC4F61D003688EA /* Info.plist */,
@@ -181,6 +187,8 @@
 				12331B621DC4F61D003688EA /* LaunchScreen.storyboard in Resources */,
 				12331B5F1DC4F61D003688EA /* Assets.xcassets in Resources */,
 				123321061DC50EFC003688EA /* pokemon.csv in Resources */,
+				1290905C1DCD14EC006B435C /* Pokemon.ttf in Resources */,
+				1290905E1DCD1AEC006B435C /* music.mp3 in Resources */,
 				12331B5D1DC4F61D003688EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

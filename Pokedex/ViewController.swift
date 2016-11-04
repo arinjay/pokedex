@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collection: UICollectionView!
     
     var pokemon = [Pokemon]()
+    var musicPlayer: AVAudioPlayer!
     
     
     override func viewDidLoad() {
@@ -21,6 +23,36 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         collection.dataSource = self
         
         parsePokemonCSV()
+    }
+    
+    
+//    func initAudio(){
+//    
+//        let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3")!
+//        do{
+//             musicPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
+//            musicPlayer.prepareToPlay()
+//            musicPlayer.numberOfLoops = -1
+//            musicPlayer.play()
+//        }
+//        catch let err as NSError {
+//            print(err.debugDescription)
+//        }
+//     
+//    }
+    func initAudio() {
+        
+        let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3")!
+        
+        do {
+            musicPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
+            musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = -1
+            musicPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
     }
     
     func parsePokemonCSV() {
@@ -99,6 +131,21 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize (width: 105,height: 105)
     }
+    
+    
+    @IBAction func musicbuttonpress(sender: UIButton!) {
+        
+        if musicPlayer.playing{
+            musicPlayer.stop()
+            sender.alpha = 0.2
+        }
+        else {
+            musicPlayer.play()
+            sender.alpha = 1.0
+        }
+        
+    }
+    
     
 }
 
