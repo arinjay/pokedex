@@ -12,7 +12,7 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
 
     @IBOutlet weak var collection: UICollectionView!
     
-    var pokemo = [Pokemon]()
+    var pokemon = [Pokemon]()
     
     
     override func viewDidLoad() {
@@ -23,23 +23,45 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         parsePokemonCSV()
     }
     
-    
-    func parsePokemonCSV(){
-        let path  = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv")!
+    func parsePokemonCSV() {
+        let path = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv")!
         
         do {
             let csv = try CSV(contentsOfURL: path)
             let rows = csv.rows
             
-            
-            
+            for row in rows {
+                let pokeId = Int(row["id"]!)!
+                let name = row["identifier"]!
+                let poke = Pokemon(name: name, pokedexId: pokeId)
+                pokemon.append(poke)
+            }
             
         } catch let err as NSError {
-            
-            print(err.description)
+            print(err.debugDescription)
         }
     }
+
     
+//    func parsePokemonCSV() {
+//        let path = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv")!
+//        
+//        do {
+//            let csv = try CSV(contentsOfURL: path)
+//            let rows = csv.rows
+//            
+//            for row in rows {
+//                let pokeId = Int(row["id"]!)!
+//                let name = row["identifier"]!
+//                let poke = Pokemon(name: name, pokedexId: pokeId)
+//                pokemon.append(poke)
+//            }
+//            
+//        } catch let err as NSError {
+//            print(err.debugDescription)
+//        }
+//    }
+
     
     
     
@@ -50,8 +72,9 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let  cell = collectionView.dequeueReusableCellWithReuseIdentifier("PokeCellCollectionViewCell", forIndexPath: indexPath) as? PokeCellCollectionViewCell{
             
-            var pokemon = Pokemon(name: "Test", pokedexId: indexPath.row)
-            cell.configureCell(pokemon)
+            //var pokemon = Pokemon(name: "Test", pokedexId: indexPath.row)
+            let poke = pokemon[indexPath.row]
+            cell.configureCell(poke)
             return cell
         }
         else{
