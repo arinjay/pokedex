@@ -141,6 +141,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collection" destination="ieI-nB-qVM" id="cN2-I7-i4Z"/>
+                        <outlet property="searchBar" destination="oBS-GG-tre" id="SEa-dy-sVS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

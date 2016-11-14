@@ -9,19 +9,23 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout,
+UISearchBarDelegate{
 
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet var searchBar: UISearchBar!
     
     var pokemon = [Pokemon]()
     var musicPlayer: AVAudioPlayer!
+    var inSearchMode = false
+    var filterPokemon = [Pokemon]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.delegate = self    // delegaton for this collection is for this class above
         collection.dataSource = self
-        
+        searchBar.delegate = self
         parsePokemonCSV()
     }
     
@@ -142,6 +146,17 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         else {
             musicPlayer.play()
             sender.alpha = 1.0
+        }
+        
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+        }
+        else{
+            inSearchMode = true
         }
         
     }
