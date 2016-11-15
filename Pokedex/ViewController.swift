@@ -26,6 +26,7 @@ UISearchBarDelegate{
         collection.delegate = self    // delegaton for this collection is for this class above
         collection.dataSource = self
         searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.Done
         parsePokemonCSV()
     }
     
@@ -163,10 +164,19 @@ UISearchBarDelegate{
         
     }
     
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
+            
             inSearchMode = false
+            view.endEditing(true) // end keyboard
+            collection.reloadData()
         }
         else{
             inSearchMode = true
