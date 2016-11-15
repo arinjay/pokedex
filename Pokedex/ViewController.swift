@@ -109,7 +109,16 @@ UISearchBarDelegate{
         if let  cell = collectionView.dequeueReusableCellWithReuseIdentifier("PokeCellCollectionViewCell", forIndexPath: indexPath) as? PokeCellCollectionViewCell{
             
             //var pokemon = Pokemon(name: "Test", pokedexId: indexPath.row)
-            let poke = pokemon[indexPath.row]
+            let poke: Pokemon
+            
+            if inSearchMode{
+                poke = filterPokemon[indexPath.row]
+                
+            }  else
+                {
+                    poke = pokemon[indexPath.row]
+                }
+            
             cell.configureCell(poke)
             return cell
         }
@@ -125,7 +134,11 @@ UISearchBarDelegate{
 
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 718
+        //return 718  // never hardcode
+        if inSearchMode {
+            return filterPokemon.count
+        }
+        return pokemon.count
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -157,6 +170,9 @@ UISearchBarDelegate{
         }
         else{
             inSearchMode = true
+            let lower = searchBar.text!.lowercaseString
+            filterPokemon = pokemon.filter({$0.name.rangeOfString(lower) != nil})   //"$0" grabbing an elemnt
+            collection.reloadData()
         }
         
     }
