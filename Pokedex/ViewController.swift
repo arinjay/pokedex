@@ -26,7 +26,6 @@ UISearchBarDelegate{
         collection.delegate = self    // delegaton for this collection is for this class above
         collection.dataSource = self
         searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.Done
         parsePokemonCSV()
     }
     
@@ -131,6 +130,19 @@ UISearchBarDelegate{
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        let poke: Pokemon!
+        
+        if inSearchMode {
+            poke = filterPokemon[indexPath.row]
+        }
+        else
+        {
+            poke = pokemon[indexPath.row]
+            
+        }
+        
+     performSegueWithIdentifier("PokemonDetailVC", sender: poke)
+        
     }
 
     
@@ -164,19 +176,10 @@ UISearchBarDelegate{
         
     }
     
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        view.endEditing(true)
-    }
-    
-    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
-            
             inSearchMode = false
-            view.endEditing(true) // end keyboard
-            collection.reloadData()
         }
         else{
             inSearchMode = true
@@ -187,6 +190,15 @@ UISearchBarDelegate{
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PokemonDetailVC" {
+            if let detailsVC = segue.destinationViewController as? PokemonDetailVC {
+                if let poke = sender as? Pokemon {
+                    detailsVC.pokemon = poke
+                }
+            }
+        }
+    }
     
 }
 
