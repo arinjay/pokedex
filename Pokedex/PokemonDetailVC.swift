@@ -11,6 +11,7 @@ import UIKit
 class PokemonDetailVC: UIViewController {
     
     @IBOutlet var nameLbl: UILabel!
+    
     var pokemon: Pokemon!
     
 
