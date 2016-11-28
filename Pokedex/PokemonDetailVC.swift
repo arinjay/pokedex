@@ -11,6 +11,15 @@ import UIKit
 class PokemonDetailVC: UIViewController {
     
     @IBOutlet var nameLbl: UILabel!
+    @IBOutlet var mainImg: UIImageView!
+    @IBOutlet var descriptionLbl: UILabel!
+    @IBOutlet var typeLbl: UILabel!
+    @IBOutlet var defenseLbl: UILabel!
+    @IBOutlet var heightLbl: UILabel!
+    @IBOutlet var pokedexLbl: UILabel!
+    @IBOutlet var currentEvoImg: UIImageView!
+    @IBOutlet var nextEvoImg: UIImageView!
+    @IBOutlet var evoLbl: UILabel!
     
     var pokemon: Pokemon!
     
@@ -27,6 +36,12 @@ class PokemonDetailVC: UIViewController {
     }
     
 
+    @IBAction func backBtnPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
